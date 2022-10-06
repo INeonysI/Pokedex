@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
 
 * {
     font-family: 'Montserrat', sans-serif;
@@ -166,4 +167,122 @@ header {
 .search input::placeholder {
     font-size: 15px;
     color: #A0AFBA;
+}
+
+/* MAIN */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+}
+
+/* Menu */
+
+.menu {
+    font-family: 'Inter', sans-serif;
+    border-right: 1px solid #EFF3F6;
+    padding: 70px 0 100px 0;
+}
+
+.type {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    background: none;
+    color: #C3C3C3;
+    padding: 15px 0;
+
+    cursor: pointer;
+}
+
+.type img {
+    filter: invert(91%) sepia(6%) saturate(2%) hue-rotate(315deg) brightness(87%) contrast(88%);
+}
+
+button:first-of-type img {
+    filter: invert(63%) sepia(77%) saturate(5724%) hue-rotate(200deg) brightness(85%) contrast(75%);
+}
+
+button:first-of-type span {
+    color: #3E75C3;
+}
+
+/* Pokemons */
+
+.pokemons {
+    border-left: 1px solid #EFF3F6;
+    padding: 72px 0 100px 75px;
+
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 20px;
+}
+
+.pokemon {
+    height: 350px;
+    max-width: 300px;
+    padding: 0 28px;
+
+    border-radius: 12px;
+    box-shadow: 0px 10px 51px -5px rgb(183 189 193 / 30%);
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(3, auto);
+}
+
+.image {
+    grid-column: span 2;
+    justify-self: center;
+    align-self: center;
+
+    width: 66%;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    padding: 20px;
+
+    background: #D6EBDC;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon .pokemon--image {
+    width: 100%;
+    margin: 10px;
+
+    background: #D6EBDC;
+
+    object-fit: fill;
+}
+
+.pokemon span {
+    grid-column: span 2;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    color: #7A7D80;
+}
+
+.pokemon span::before {
+    content: '#';
+}
+
+.pokemon p {
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #2F3133;
+}
+
+.pokemon img:last-of-type {
+    justify-self: flex-end;
 }
