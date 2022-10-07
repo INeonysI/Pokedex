@@ -212,20 +212,45 @@ button:first-of-type span {
     color: #3E75C3;
 }
 
+/* Content */
+
+.totalDePokemons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 18px;
+    font-weight: 700;
+    color: #4D5053;
+    /* background: #ff0000; */
+    margin-bottom: 72px;
+}
+
+.totalDePokemons img {
+    filter: invert(17%) sepia(99%) saturate(6387%) hue-rotate(358deg) brightness(105%) contrast(111%);
+}
+
 /* Pokemons */
 
-.pokemons {
+.content {
     border-left: 1px solid #EFF3F6;
     padding: 72px 0 100px 75px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: inherit;
+}
+
+.pokemons {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    gap: 20px;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .pokemon {
-    height: 350px;
-    max-width: 300px;
+    height: 300px;
+    max-width: 280px;
     padding: 0 28px;
 
     border-radius: 12px;
@@ -234,6 +259,13 @@ button:first-of-type span {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: repeat(3, auto);
+
+    transition: transform .5s;
+    cursor: pointer;
+}
+
+.pokemon:hover {
+    transform: translateY(-3%);
 }
 
 .image {
@@ -241,7 +273,7 @@ button:first-of-type span {
     justify-self: center;
     align-self: center;
 
-    width: 66%;
+    width: 75%;
     border-radius: 50%;
     aspect-ratio: 1/1;
     overflow: hidden;
@@ -256,11 +288,10 @@ button:first-of-type span {
 
 .pokemon .pokemon--image {
     width: 100%;
-    margin: 10px;
 
     background: #D6EBDC;
 
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .pokemon span {
@@ -285,4 +316,25 @@ button:first-of-type span {
 
 .pokemon img:last-of-type {
     justify-self: flex-end;
+}
+
+.loadBtn {
+    align-self: center;
+    border-radius: 6px;
+    background-color: rgba(63, 93, 179, 0.1);
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #3F5DB3;
+
+    margin-top: 72px;
+    padding: 14px 18px;
+
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.loadBtn:hover {
+    background-color: #3F5DB3;
+    color: #FFFFFF;
 }
