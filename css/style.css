@@ -20,7 +20,9 @@
     margin: 0 auto;
 }
 
-/* 60, 64, 18 */
+.invisivel {
+    display: none !important;
+}
 
 /* HEADER */
 
@@ -212,6 +214,10 @@ button:first-of-type span {
     color: #3E75C3;
 }
 
+.type-selected img {
+    filter: none !important;
+}
+
 /* Content */
 
 .totalDePokemons {
@@ -251,6 +257,7 @@ button:first-of-type span {
 .pokemon {
     height: 300px;
     max-width: 280px;
+    min-width: 270px;
     padding: 0 28px;
 
     border-radius: 12px;
