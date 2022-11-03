@@ -4,6 +4,8 @@ function adicionaFuncaoDeFiltrarPorTipo() {
     tiposBtn.forEach(tipoBtn => {
         tipoBtn.addEventListener("click", () => {
             pokemonsFiltrados = []
+            totalCarregados = 0
+            resetaDisplayDePokemons()
             desselecionarOutrosTipos(tiposBtn)
             tipoBtn.classList.add("type-selected")
 

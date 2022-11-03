@@ -4,14 +4,11 @@ async function filtraPorTipo(tipo) {
         const requisicao = await fetch(`https://pokeapi.co/api/v2/type/${tipo}`)
         const requisicaoJSON = await requisicao.json()
 
-        pokemons = requisicaoJSON.pokemon.map(pokemon => pokemon.pokemon)
+        pokemonsFiltrados = requisicaoJSON.pokemon.map(pokemon => pokemon.pokemon)
 
-        const totalDePokemons = document.querySelector("#totalDePokemonsTexto")
-        totalDePokemons.textContent = `${pokemons.length} Pokémons`
+        alteraTotal(pokemonsFiltrados.length)
 
-        console.log(pokemons)
-
-        carregaNovosPokemons(0, 9, tipo)
+        carregaNovosPokemons(totalCarregados, 9)
     } catch (erro) {
         console.log(erro)
     }

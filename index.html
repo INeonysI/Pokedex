@@ -15,57 +15,61 @@
 </head>
 
 <body>
-    <header>
-        <div class="header__main">
-            <div class="cabecalho container">
-                <img src="images/logo.svg" class="logo" alt="Logo do desenho pokemon">
-                <span class="creditos">
-                    <a href="https://github.com/INeonysI"><i class="fa-brands fa-github"></i>Gabriel Ayres</a>
-                </span>
+    <div class="wrapper">
+        <header>
+            <div class="header__main">
+                <div class="cabecalho container">
+                    <img src="images/logo.svg" class="logo" alt="Logo do desenho pokemon">
+                    <span class="creditos">
+                        <a href="https://github.com/INeonysI"><i class="fa-brands fa-github"></i>Gabriel Ayres</a>
+                    </span>
+                </div>
+                <div class="icone__pokedex"><i>🎒</i><span>pokedex</span></div>
+                <div class="header__texto container">
+                    <h1>Who is that Pokémon?</h1>
+                    <p>The perfect guide for those who want to hunt Pokémons around the world</p>
+                </div>
             </div>
-            <div class="icone__pokedex"><i>🎒</i>pokedex</div>
-            <div class="header__texto container">
-                <h1>Who is that Pokémon?</h1>
-                <p>The perfect guide for those who want to hunt Pokémons around the world</p>
+            <div class="header__search">
+                <img src="images/img-pokeball.png" alt="" class="pokebola">
+                <div class="container">
+                    <h2>Select your Pokémon</h2>
+                    <div class="search">
+                        <input type="text" class="search--input" placeholder="Search a name or code">
+                        <i><img src="icons/lupa.svg" alt="icone de lupa"></i>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="header__search">
-            <img src="images/img-pokeball.png" alt="" class="pokebola">
+        </header>
+        <main class="container">
+            <div class="menu">
+                <button class="type type-selected">
+                    <img src="images/types/icon-all.svg" alt="" class="type__icon" id="aiai">
+                    <span>All</span>
+                </button>
+            </div>
+            <div class="content">
+                <div class="totalDePokemons">
+                    <img src="images/types/icon-all.svg" alt="" class="type__icon">
+                    <span id="totalDePokemonsTexto"></span>
+                </div>
+                <div class="pokemons">
+                    <!--
+                    <div class="pokemon">
+                        <div class="image"><img src="images/bulba.svg" alt="" class="pokemon--image"></div>
+                        <span>001</span>
+                        <p>Bulbassaur</p>
+                        <img src="images/types/grass.svg">
+                    </div>
+                    -->
+                </div>
+                <button class="loadBtn">Load more Pokémons</button>
+            </div>
 
-            <div class="container">
-                <h2>Select your<br>Pokémon</h2>
-                <div class="search">
-                    <input type="text" class="search--input" placeholder="Search a name or code">
-                    <i><img src="icons/lupa.svg" alt="icone de lupa"></i>
-                </div>
-            </div>
-        </div>
-    </header>
-    <main class="container">
-        <div class="menu">
-            <button class="type type-selected">
-                <img src="images/types/icon-all.svg" alt="" class="type__icon" id="aiai">
-                <span>All</span>
-            </button>
-        </div>
-        <div class="content">
-            <div class="totalDePokemons">
-                <img src="images/types/icon-all.svg" alt="" class="type__icon">
-                <span id="totalDePokemonsTexto"></span>
-            </div>
-            <div class="pokemons">
-                <!--
-                <div class="pokemon">
-                    <div class="image"><img src="images/bulba.svg" alt="" class="pokemon--image"></div>
-                    <span>001</span>
-                    <p>Bulbassaur</p>
-                    <img src="images/types/grass.svg">
-                </div>
-                -->
-            </div>
-            <button class="loadBtn">Load more Pokémons</button>
-        </div>
-    </main>
+        </main>
+    </div>
+    <script src="js/resetaDisplayDePokemons.js"></script>
+    <script src="js/totalDePokemons.js"></script>
     <script src="js/formatacaoDeTexto.js"></script>
     <script src="js/main.js"></script>
     <script src="js/carregarMaisPokemonsBtn.js"></script>

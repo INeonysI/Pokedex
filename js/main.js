@@ -1,5 +1,7 @@
 var pokemons = []
 var pokemonsFiltrados = []
+var pokemonsCarregados = []
+var totalCarregados = 0
 
 pegaListaDePokemons()
 
@@ -10,35 +12,38 @@ async function pegaListaDePokemons() {
         const requisicaoJSON = await requisicao.json()
 
         pokemons = requisicaoJSON.results
-        nomes = pokemons.map(pokemon => pokemon.name)
+        pokemonsFiltrados = pokemons
+        /* nomes = pokemons.map(pokemon => pokemon.name) */
 
-        const totalDePokemons = document.querySelector("#totalDePokemonsTexto")
-        totalDePokemons.textContent = `${pokemons.length} Pokémons`
+        alteraTotal(pokemons.length)
 
-        carregaNovosPokemons(0, 9, "All")
+        carregaNovosPokemons(totalCarregados, 9)
     } catch (erro) {
         console.log(erro)
     }
 }
 
-async function carregaNovosPokemons(inicio, quantidade, tipoDeRequisicao) {
+async function carregaNovosPokemons(inicio, quantidade) {
+    const novosPokemonsCarregados = await pegaDadosDosPokemons(pokemonsFiltrados, inicio, quantidade)
+    console.log(novosPokemonsCarregados)
+    console.log(inicio)
+    console.log(quantidade)
+    pokemonsCarregados = novosPokemonsCarregados
 
-    const novosPokemonsCarregados = await pegaDadosDosPokemons(pokemons, inicio, quantidade, tipoDeRequisicao)
-    pokemonsFiltrados = pokemonsFiltrados.concat(novosPokemonsCarregados)
-
-    geraCardsDePokemons(pokemonsFiltrados)
+    geraCardsDePokemons(pokemonsCarregados)
+    totalCarregados += 9
 }
 
 async function pegaDadosDosPokemons(pokemons, inicio, quantidade) {
     const pokemonsSubconjunto = pokemons.slice(inicio, inicio + quantidade)
     console.log(pokemonsSubconjunto)
-    let requisicoes = pokemonsSubconjunto.map(pokemon => requisitaDadosDoPokemon(pokemon.name));
+    let requisicoes = pokemonsSubconjunto.map(pokemon => requisitaDadosDeUmPokemon(pokemon.name));
 
-    return await Promise.all(requisicoes);
+    return await Promise.all(requisicoes)
 }
 
 
-async function requisitaDadosDoPokemon(numero) {
+async function requisitaDadosDeUmPokemon(numero) {
     try {
         const requisicao = await fetch(`https://pokeapi.co/api/v2/pokemon/${numero}`)
         const requisicaoJSON = await requisicao.json()
@@ -51,7 +56,6 @@ async function requisitaDadosDoPokemon(numero) {
 
 function geraCardsDePokemons(pokemons) {
     const pokemonsList = document.querySelector(".pokemons")
-    pokemonsList.innerHTML = ''
 
     pokemons.forEach(pokemon => {
         let imgURL = ''
@@ -74,4 +78,3 @@ function geraCardsDePokemons(pokemons) {
         `
     })
 }
-

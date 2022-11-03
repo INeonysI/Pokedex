@@ -109,10 +109,14 @@ header {
 .header__texto h1 {
     font-size: 64px;
     font-weight: bold;
+    line-height: 130%;
 }
 
 .header__texto p {
     font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 150%;
 }
 
 .header__search {
@@ -147,6 +151,8 @@ header {
     font-weight: 700;
     line-height: 30px;
     color: #2F3133;
+
+    max-width: 20.5rem;
 }
 
 .search {
@@ -176,7 +182,6 @@ header {
 main {
     display: grid;
     grid-template-columns: 1fr 4fr;
-
 }
 
 /* Menu */
@@ -344,4 +349,111 @@ button:first-of-type span {
 .loadBtn:hover {
     background-color: #3F5DB3;
     color: #FFFFFF;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 87%;
+        margin: 0 auto;
+    }
+
+    .wrapper {
+        max-width: 100vw;
+        overflow-x: hidden;
+        margin-bottom: 50px;
+    }
+
+    /* HEADER */
+
+    header {
+        height: auto;
+    }
+
+    .header__main {
+        overflow-x: hidden;
+    }
+
+    .logo {
+        height: 44px;
+    }
+
+    .creditos {
+        font-size: 13px;
+    }
+
+
+    .icone__pokedex {
+        margin-top: 24px;
+    }
+
+    .header__texto {
+        gap: 24px;
+        margin-bottom: 240px;
+    }
+
+    .header__texto h1 {
+        font-size: 48px;
+    }
+
+
+    .header__search {
+        padding: 230px 0 0 0;
+    }
+
+    .header__search .container {
+        flex-direction: column;
+        gap: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .header__search h2 {
+        max-width: 25.5em;
+        font-size: 28px;
+    }
+
+    .search {
+        min-width: auto;
+        width: 100%;
+    }
+
+
+    /* MAIN */
+
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    main.container {
+        overflow: hidden;
+    }
+
+    .content {
+        padding: 0;
+        border: none;
+        align-items: center;
+        margin-top: 4rem;
+    }
+
+    .totalDePokemons {
+        margin-bottom: 32px;
+    }
+
+
+    .pokemons {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
+    .pokemon {
+        justify-self: center;
+    }
+
+    .pokebola {
+        transform: translate(-50%, -50%) scale(0.95);
+    }
 }
